@@ -330,14 +330,14 @@ func (RWUtil rwUtil) executeByConn(conn *DmConnection, query string, execute1 fu
 	}
 
 	switch curConn.lastExecInfo.retSqlType {
-	case Dm_build_794, Dm_build_795, Dm_build_799, Dm_build_806, Dm_build_805, Dm_build_797:
+	case Dm_build_384, Dm_build_385, Dm_build_389, Dm_build_397, Dm_build_396, Dm_build_387:
 		{
 
 			if otherConn != nil {
 				execute2(otherConn)
 			}
 		}
-	case Dm_build_804:
+	case Dm_build_394:
 		{
 
 			sqlhead := regexp.MustCompile("[ (]").Split(strings.TrimSpace(query), 2)[0]
@@ -347,7 +347,7 @@ func (RWUtil rwUtil) executeByConn(conn *DmConnection, query string, execute1 fu
 				}
 			}
 		}
-	case Dm_build_803:
+	case Dm_build_393:
 		{
 
 			if conn.dmConnector.rwHA && curConn == conn.rwInfo.connStandby &&
@@ -401,7 +401,7 @@ func (RWUtil rwUtil) executeByStmt(stmt *DmStatement, execute1 func() (interface
 	}
 
 	switch curStmt.execInfo.retSqlType {
-	case Dm_build_794, Dm_build_795, Dm_build_799, Dm_build_806, Dm_build_805, Dm_build_797:
+	case Dm_build_384, Dm_build_385, Dm_build_389, Dm_build_397, Dm_build_396, Dm_build_387:
 		{
 
 			if otherStmt != nil {
@@ -409,7 +409,7 @@ func (RWUtil rwUtil) executeByStmt(stmt *DmStatement, execute1 func() (interface
 				execute2(otherStmt)
 			}
 		}
-	case Dm_build_804:
+	case Dm_build_394:
 		{
 
 			var tmpsql string
@@ -428,7 +428,7 @@ func (RWUtil rwUtil) executeByStmt(stmt *DmStatement, execute1 func() (interface
 				}
 			}
 		}
-	case Dm_build_803:
+	case Dm_build_393:
 		{
 
 			if stmt.dmConn.dmConnector.rwHA && curStmt == stmt.rwInfo.stmtStandby &&
